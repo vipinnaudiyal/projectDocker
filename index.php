@@ -1,3 +1,6 @@
+<?php
+echo "Welcome to the PHP world";
+?>
 <html>
     <head>
         <h1>My First Docker<h1>
@@ -7,7 +10,7 @@
     </body>
 </html>
 <?php
-$con = mysqli_connect("localhost", "placeqdh_root","2014LOve@$","placeqdh_pam"); #Connection string
+$con = mysqli_connect("localhost", "vipin","abc123","placeqdh_pam"); #Connection string
 mysqli_set_charset($con,"utf8mb4");
 if(mysqli_connect_errno())
 {
