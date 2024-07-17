@@ -1,7 +1,10 @@
 <html>
     <head>
-        Hello, how are you
+        <h1>My First Docker<h1>
     </head>
+    <body>
+        <h3>This is the body of my HTML page<h3>
+    </body>
 </html>
 <?php
 $con = mysqli_connect("localhost", "placeqdh_root","2014LOve@$","placeqdh_pam"); #Connection string
