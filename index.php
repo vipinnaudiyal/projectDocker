@@ -1,38 +1,27 @@
-<?php
-echo "Welcome to the PHP world";
-?>
 <html>
     <head>
-        <h1>My First Docker<h1>
+        <h1>My First Docker project</h1>
     </head>
     <body>
-        <h3>This is the body of my HTML page<h3>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <label for="name"><h2>Enter your name:</h2></label>
+        <input type="text" id="name" name="name"><br>
+        <label for="name"><h2>Hobbies:</h2></label>
+        <input type="text" id="hobby" name="hobby"><br><br>
+        <input type="submit" value="Submit">
+</form>
     </body>
 </html>
 <?php
-$con = mysqli_connect("localhost", "vipin","abc123","placeqdh_pam"); #Connection string
-mysqli_set_charset($con,"utf8mb4");
-if(mysqli_connect_errno())
-{
-    echo "Failed to connect:" . mysqli_connect_errno();
-}
-
-$result = mysqli_query($con,"SELECT * FROM users");
-echo '<table border="1" cellspacing="2" cellpadding="2"> 
-      <tr>     
-      </tr>';
-          while ($row = $result->fetch_assoc()) {
-        $field1name = $row["id"];
-        $field2name = $row["first_name"];
-        $field3name = $row["last_name"];
-        #$field4name = $row["hobby"];
- 
-        echo '<tr> 
-                  <td>'.$field1name.'</td>
-                  <td>'.$field2name.'</td> 
-       
-      <td>'.$field3name.'</td> 
-                  <td>'.$field4name.'</td> 
-              </tr>';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve the name from the POST data
+    $name = htmlspecialchars($_POST['name']);
+    $hobby = htmlspecialchars($_POST['hobby']);
+    if (!empty($name)) {
+        echo "<h3>Hello, " . $name . "! Welcome to my website, "."Wow you love ".$hobby.", that's really exciting!!</h3>";
+    } else {
+        echo "<h4>Please enter your name.</h4>";
     }
+}
 ?>
+
